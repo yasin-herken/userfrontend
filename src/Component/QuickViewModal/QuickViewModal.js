@@ -41,8 +41,8 @@ const QuickViewModal = () => {
                       <div className="cz-preview-item active" id="first">
                         <img
                           className="cz-image-zoom"
-                          src="img/shop/single/gallery/05.jpg"
-                          data-zoom="img/shop/single/gallery/05.jpg"
+                          src="assets/img/shop/single/gallery/05.jpg"
+                          data-zoom="assets/img/shop/single/gallery/05.jpg"
                           alt="Product image"
                         />
                         <div className="cz-image-zoom-pane" />
@@ -50,8 +50,8 @@ const QuickViewModal = () => {
                       <div className="cz-preview-item" id="second">
                         <img
                           className="cz-image-zoom"
-                          src="img/shop/single/gallery/06.jpg"
-                          data-zoom="img/shop/single/gallery/06.jpg"
+                          src="assets/img/shop/single/gallery/06.jpg"
+                          data-zoom="assets/img/shop/single/gallery/06.jpg"
                           alt="Product image"
                         />
                         <div className="cz-image-zoom-pane" />
@@ -59,8 +59,8 @@ const QuickViewModal = () => {
                       <div className="cz-preview-item" id="third">
                         <img
                           className="cz-image-zoom"
-                          src="img/shop/single/gallery/07.jpg"
-                          data-zoom="img/shop/single/gallery/07.jpg"
+                          src="assets/img/shop/single/gallery/07.jpg"
+                          data-zoom="assets/img/shop/single/gallery/07.jpg"
                           alt="Product image"
                         />
                         <div className="cz-image-zoom-pane" />
@@ -68,8 +68,8 @@ const QuickViewModal = () => {
                       <div className="cz-preview-item" id="fourth">
                         <img
                           className="cz-image-zoom"
-                          src="img/shop/single/gallery/08.jpg"
-                          data-zoom="img/shop/single/gallery/08.jpg"
+                          src="assets/img/shop/single/gallery/08.jpg"
+                          data-zoom="assets/img/shop/single/gallery/08.jpg"
                           alt="Product image"
                         />
                         <div className="cz-image-zoom-pane" />
@@ -78,25 +78,25 @@ const QuickViewModal = () => {
                     <div className="cz-thumblist order-sm-1">
                       <a className="cz-thumblist-item active" href="#first">
                         <img
-                          src="img/shop/single/gallery/th05.jpg"
+                          src="assets/img/shop/single/gallery/th05.jpg"
                           alt="Product thumb"
                         />
                       </a>
                       <a className="cz-thumblist-item" href="#second">
                         <img
-                          src="img/shop/single/gallery/th06.jpg"
+                          src="assets/img/shop/single/gallery/th06.jpg"
                           alt="Product thumb"
                         />
                       </a>
                       <a className="cz-thumblist-item" href="#third">
                         <img
-                          src="img/shop/single/gallery/th07.jpg"
+                          src="assets/img/shop/single/gallery/th07.jpg"
                           alt="Product thumb"
                         />
                       </a>
                       <a className="cz-thumblist-item" href="#fourth">
                         <img
-                          src="img/shop/single/gallery/th08.jpg"
+                          src="assets/img/shop/single/gallery/th08.jpg"
                           alt="Product thumb"
                         />
                       </a>

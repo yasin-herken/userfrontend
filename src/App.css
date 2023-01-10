@@ -30,3 +30,11 @@ right: 15px;
 left: auto;
 color: black;
 }
+
+.left{
+  left: 0px;
+}
+
+.right{
+  right: 0px;
+}

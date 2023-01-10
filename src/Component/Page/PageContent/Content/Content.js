@@ -1,8 +1,7 @@
 import React from "react";
-import Banner from "./Banner/Banner";
+import { categories } from "../../../../Common/dashboardCategories";
 import Pagination from "./Pagination/Pagination";
 import Products from "./Products/Products";
-import Toolbar from "./Toolbar/Toolbar";
 
 const Content = () => {
   return (
@@ -56,11 +55,7 @@ const Content = () => {
           </div>
         </div>
         {/* Products grid*/}
-        <Toolbar />
-        {/* Banner*/}
-        <Banner />
-        {/* Products grid*/}
-        <Products />
+        <Products products={categories}/>
         <hr className="my-3" />
         {/* Pagination*/}
         <Pagination />
