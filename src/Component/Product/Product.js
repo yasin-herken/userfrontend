@@ -2,10 +2,10 @@ import React from 'react'
 import ProductDescription from './ProductDescription/ProductDescription'
 import ProductSwiper from './ProductSwiper/ProductSwiper'
 
-const Product = () => {
+const Product = ({description}) => {
   return (
     <React.Fragment> 
-        <ProductDescription />
+        <ProductDescription description={description} />
         <ProductSwiper />
     </React.Fragment>
   )

@@ -2,11 +2,12 @@ import React from 'react'
 import PageContent from './PageContent/PageContent'
 import PageTitle from './PageTitle/PageTitle'
 
-const Page = () => {
+const Page = ({products = [],categories = []}) => {
+
   return (
     <React.Fragment>
-        <PageTitle />
-        <PageContent />
+        <PageTitle length = {products?.length} />
+        <PageContent products={products} categories={categories}/>
     </React.Fragment>
   )
 }

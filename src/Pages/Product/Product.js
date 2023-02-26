@@ -5,18 +5,20 @@ import Header from "../../Component/Header/Header";
 import Login from "../../Component/Header/LoginModal/Login";
 import QuickViewModal from "../../Component/QuickViewModal/QuickViewModal";
 import SingleProduct from "../../Component/Product/Product";
+import {useLoaderData} from "react-router-dom";
 
 const Product = () => {
-  return (
-    <React.Fragment>
-      <Login />
-      <QuickViewModal />
-      <Header />
-      <CustomPage />
-      <SingleProduct />
-      <Footer />
-    </React.Fragment>
-  );
+    const {product} = useLoaderData();
+    return (
+        <React.Fragment>
+            <Header/>
+            <Login/>
+            <QuickViewModal/>
+            <CustomPage product={product}/>
+            <SingleProduct description={product.description}/>
+            <Footer/>
+        </React.Fragment>
+    );
 };
 
 export default Product;

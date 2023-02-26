@@ -32,7 +32,6 @@ const Login = () => {
         buttonRef.current.click();
       }
     } catch (err) {
-      console.log(err);
       toast.error(err.response.data.error);
     }
   };
@@ -54,7 +53,6 @@ const Login = () => {
     }
   }
   useEffect(() => {
-    console.log(loginObject);
   }, [loginObject]);
   return (
     <React.Fragment>

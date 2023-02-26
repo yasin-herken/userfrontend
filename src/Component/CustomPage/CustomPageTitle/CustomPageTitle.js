@@ -1,6 +1,7 @@
 import React from "react";
+import { capitalizeFirstLetter } from "../../../Utility/Utility";
 
-const CustomPageTitle = () => {
+const CustomPageTitle = ({ product }) => {
   return (
     <React.Fragment>
       {/* Custom page title*/}
@@ -22,25 +23,13 @@ const CustomPageTitle = () => {
                   className="breadcrumb-item text-nowrap active"
                   aria-current="page"
                 >
-                  Product Page v.2
+                  {capitalizeFirstLetter(product?.category?.name)}
                 </li>
               </ol>
             </nav>
           </div>
           <div className="order-lg-1 pr-lg-4 text-center text-lg-left">
-            <h1 className="h3 text-light mb-2">Smartwatch Youth Edition</h1>
-            <div>
-              <div className="star-rating">
-                <i className="sr-star czi-star-filled active" />
-                <i className="sr-star czi-star-filled active" />
-                <i className="sr-star czi-star-filled active" />
-                <i className="sr-star czi-star-filled active" />
-                <i className="sr-star czi-star" />
-              </div>
-              <span className="d-inline-block font-size-sm text-white opacity-70 align-middle mt-1 ml-1">
-                74 Reviews
-              </span>
-            </div>
+            <h1 className="h3 text-light mb-2">{product?.title}</h1>
           </div>
         </div>
       </div>

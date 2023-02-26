@@ -1,20 +1,42 @@
 import "./App.css";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import ShopGridLeft from "./Pages/Shop/Shop-grid-left";
 import Product from "./Pages/Product/Product";
-import Cart from "./Pages/Cart/Cart";
+import {getProductByIdandCategory, getProducts} from "./Services/productService";
+import {getCategories} from "./Services/categoryService";
 
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Dashboard/>,
+    },
+    {
+        path: "/shopGridLeft",
+        loader: async () => {
+            const data = await getProducts({});
+            const categories = await getCategories();
+            return {
+                products: data,
+                categories,
+            }
+        },
+        element: <ShopGridLeft/>,
+    },
+    {
+        path: "/shop/:categories/:id",
+        loader: async ({params}) => {
+            const data = await getProductByIdandCategory({category: params.categories, id: params.id});
+            return {
+                product: data,
+            };
+        },
+        element: <Product/>,
+    },
+]);
 function App() {
-  return (
-    <Routes>
-      <Route exact path="/" element={<Dashboard />} />
-      <Route path="/shopGridLeft" element={<ShopGridLeft />} />
-      <Route path="/shop" element={<Product />}/>
-      <Route path="/cart" element={<Cart />}/>
-    </Routes>
-  );
+    return <RouterProvider router={router}/>;
 }
 
 export default App;

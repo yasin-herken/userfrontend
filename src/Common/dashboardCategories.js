@@ -8,7 +8,7 @@ export const categories = [
         categoryProducts: [
             {
                 productId:"200",
-                productLink: "/shop",
+                productLink: "/shop/Cosmetics/200",
                 productImage: "assets/img/shop/catalog/09.jpg",
                 productImageAlt: "Product image",
                 productCategory: "Cosmetics",
@@ -18,7 +18,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"201",
+                productId:"301",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/27.jpg",
                 productImageAlt: "Product image",
@@ -28,7 +28,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"202",
+                productId:"302",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/27.jpg",
                 productImageAlt: "Product image",
@@ -39,7 +39,7 @@ export const categories = [
                 productRating: 3,
             },
             {
-                productId:"203",
+                productId:"303",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/28.jpg",
                 productImageAlt: "Product image",
@@ -49,7 +49,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"204",
+                productId:"304",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/29.jpg",
                 productImageAlt: "Product image",
@@ -59,7 +59,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"205",
+                productId:"305",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/29.jpg",
                 productImageAlt: "Product image",
@@ -69,7 +69,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"206",
+                productId:"306",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/01.jpg",
                 productImageAlt: "Product image",
@@ -79,7 +79,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"207",
+                productId:"307",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/02.jpg",
                 productImageAlt: "Product image",
@@ -89,7 +89,7 @@ export const categories = [
                 productRating: 3,
             },
             {
-                productId:"208",
+                productId:"308",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/03.jpg",
                 productImageAlt: "Product image",
@@ -99,7 +99,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"209",
+                productId:"309",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/04.jpg",
                 productImageAlt: "Product image",
@@ -109,7 +109,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"210",
+                productId:"310",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/32.jpg",
                 productImageAlt: "Product image",
@@ -119,7 +119,7 @@ export const categories = [
                 productRating: 3,
             },
             {
-                productId:"211",
+                productId:"311",
                 productLink: "/shop",
                 productImage: "assets/img/shop/catalog/07.jpg",
                 productImageAlt: "Product image",
@@ -139,7 +139,7 @@ export const categories = [
         categoryImageAlt: "Category image",
         categoryProducts: [
             {
-                productId:"200",
+                productId:"400",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/32.jpg",
                 productImageAlt: "Product image",
@@ -149,7 +149,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"201",
+                productId:"401",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/33.jpg",
                 productImageAlt: "Product image",
@@ -159,7 +159,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"202",
+                productId:"402",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/34.jpg",
                 productImageAlt: "Product image",
@@ -169,7 +169,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"203",
+                productId:"403",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/35.jpg",
                 productImageAlt: "Product image",
@@ -179,7 +179,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"204",
+                productId:"404",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/29.jpg",
                 productImageAlt: "Product image",
@@ -189,7 +189,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"205",
+                productId:"405",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/29.jpg",
                 productImageAlt: "Product image",
@@ -199,7 +199,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"206",
+                productId:"406",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/01.jpg",
                 productImageAlt: "Product image",
@@ -209,7 +209,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"207",
+                productId:"407",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/02.jpg",
                 productImageAlt: "Product image",
@@ -219,7 +219,7 @@ export const categories = [
                 productRating: 3,
             },
             {
-                productId:"208",
+                productId:"408",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/03.jpg",
                 productImageAlt: "Product image",
@@ -229,7 +229,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"209",
+                productId:"409",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/04.jpg",
                 productImageAlt: "Product image",
@@ -239,7 +239,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"210",
+                productId:"410",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/32.jpg",
                 productImageAlt: "Product image",
@@ -249,7 +249,7 @@ export const categories = [
                 productRating: 3,
             },
             {
-                productId:"211",
+                productId:"411",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/07.jpg",
                 productImageAlt: "Product image",
@@ -269,7 +269,7 @@ export const categories = [
         categoryImageAlt: "Category image",
         categoryProducts: [
             {
-                productId:"200",
+                productId:"500",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/09.jpg",
                 productImageAlt: "Product image",
@@ -280,7 +280,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"201",
+                productId:"501",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/27.jpg",
                 productImageAlt: "Product image",
@@ -290,7 +290,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"202",
+                productId:"502",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/27.jpg",
                 productImageAlt: "Product image",
@@ -301,7 +301,7 @@ export const categories = [
                 productRating: 3,
             },
             {
-                productId:"203",
+                productId:"503",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/28.jpg",
                 productImageAlt: "Product image",
@@ -311,7 +311,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"204",
+                productId:"504",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/29.jpg",
                 productImageAlt: "Product image",
@@ -321,7 +321,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"205",
+                productId:"505",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/29.jpg",
                 productImageAlt: "Product image",
@@ -331,7 +331,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"206",
+                productId:"506",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/01.jpg",
                 productImageAlt: "Product image",
@@ -341,7 +341,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"207",
+                productId:"507",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/02.jpg",
                 productImageAlt: "Product image",
@@ -351,7 +351,7 @@ export const categories = [
                 productRating: 3,
             },
             {
-                productId:"208",
+                productId:"508",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/03.jpg",
                 productImageAlt: "Product image",
@@ -361,7 +361,7 @@ export const categories = [
                 productRating: 5,
             },
             {
-                productId:"209",
+                productId:"509",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/04.jpg",
                 productImageAlt: "Product image",
@@ -371,7 +371,7 @@ export const categories = [
                 productRating: 4,
             },
             {
-                productId:"210",
+                productId:"510",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/32.jpg",
                 productImageAlt: "Product image",
@@ -381,7 +381,7 @@ export const categories = [
                 productRating: 3,
             },
             {
-                productId:"211",
+                productId:"511",
                 productLink: "shop-single-v1.html",
                 productImage: "assets/img/shop/catalog/07.jpg",
                 productImageAlt: "Product image",

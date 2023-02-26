@@ -17,34 +17,32 @@ const Product = ({ product }) => {
             <i className="czi-heart" />
           </button>
           <a
-            className="card-img-top d-block overflow-hidden"
-            href={product?.productLink}
+            className="card-img-top d-block"
+            href={`product/${product?.id}`}
           >
-            <img src="assets/img/shop/catalog/07.jpg" alt="Product" />
+            <img src={product?.images[0].url} alt="Product" />
           </a>
           <div className="card-body py-2">
             <a className="product-meta d-block font-size-xs pb-1" href="#">
-              {product?.productCategory}
+              {product?.category?.name}
             </a>
             <h3 className="product-title font-size-sm">
-              <a href={product?.productLink}>{product?.productTitle}</a>
+              <a href={`product/${product?.id}`}>{product?.title}</a>
             </h3>
             <div className="d-flex justify-content-between">
               <div className="product-price">
                 <span className="text-accent">
-                  ${calculatePrice(product?.productPrice).dollar}.
-                  <small>{calculatePrice(product?.productPrice).cent}</small>
+                   ${product?.price?.price && calculatePrice(product?.price?.price).dollar}.
+                    <small>{product?.price?.price && calculatePrice(product?.price?.price).cent}</small>
                 </span>
                 {product?.productOldPrice && (
                   <del className="font-size-sm text-muted">
-                    ${calculatePrice(product?.productOldPrice).dollar}.
-                    <small>
-                      {calculatePrice(product?.productOldPrice).cent}
-                    </small>
+                    ${product?.price?.price && calculatePrice(product?.price?.price).dollar}.
+                    <small>{product?.price?.price && calculatePrice(product?.price?.price).cent}</small>
                   </del>
                 )}
               </div>
-              <div className="star-rating">
+              {/*<div className="star-rating">
                 {Array(5)
                   .fill(0)
                   .map((_, index) =>
@@ -57,7 +55,7 @@ const Product = ({ product }) => {
                       />
                     )
                   )}
-              </div>
+              </div>*/}
             </div>
           </div>
           <div className="card-body card-body-hidden">

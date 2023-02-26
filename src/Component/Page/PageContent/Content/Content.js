@@ -1,9 +1,10 @@
-import React from "react";
-import { categories } from "../../../../Common/dashboardCategories";
+import React, {useEffect} from "react";
 import Pagination from "./Pagination/Pagination";
 import Products from "./Products/Products";
 
-const Content = () => {
+const Content = ({products}) => {
+  const [initialProducts, setProducts] = React.useState(products);
+  const [value, setValue] = React.useState("Popularity");
   return (
     <React.Fragment>
       <section className="col-lg-8">
@@ -17,13 +18,31 @@ const Content = () => {
               >
                 Sort by:
               </label>
-              <select className="form-control custom-select" id="sorting">
-                <option>Popularity</option>
-                <option>Low - Hight Price</option>
-                <option>High - Low Price</option>
-                <option>Average Rating</option>
-                <option>A - Z Order</option>
-                <option>Z - A Order</option>
+              <select className="form-control custom-select" id="sorting" value={value} onChange={(event) => {
+                const {value} = event.target;
+                setValue(value);
+                if (value === "Popularity") {
+                  setProducts(initialProducts);
+                } else if (value === "Low - Hight Price") {
+                  const _products = initialProducts.sort((a, b) => parseFloat(a.price.price) - parseFloat(b.price.price));
+                  setProducts(_products);
+                } else if (value === "High - Low Price") {
+                  const _products = initialProducts.sort((a, b) => parseFloat(b.price.price) - parseFloat(a.price.price));
+                  setProducts(_products);
+                } else if (value === "Average Rating") {
+                  setProducts(initialProducts.sort((a, b) => b.rating - a.rating));
+                } else if (value === "A - Z Order") {
+                  setProducts(initialProducts.sort((a, b) => a.title.localeCompare(b.title)));
+                } else if (value === "Z - A Order") {
+                  setProducts(initialProducts.sort((a, b) => b.title.localeCompare(a.title)));
+                }
+              }}>
+                <option value={"Popularity"}>Popularity</option>
+                <option value={"Low - Hight Price"}>Low - Hight Price</option>
+                <option value={"High - Low Price"}>High - Low Price</option>
+                <option value={"Average Rating"}>Average Rating</option>
+                <option value={"A - Z Order"}>A - Z Order</option>
+                <option value={"Z - A Order"}>Z - A Order</option>
               </select>
               <span className="font-size-sm text-light opacity-75 text-nowrap ml-2 d-none d-md-block">
                 of 287 products
@@ -32,11 +51,11 @@ const Content = () => {
           </div>
           <div className="d-flex pb-3">
             <a className="nav-link-style nav-link-light mr-3" href="#">
-              <i className="czi-arrow-left" />
+              <i className="czi-arrow-left"/>
             </a>
             <span className="font-size-md text-light">1 / 5</span>
             <a className="nav-link-style nav-link-light ml-3" href="#">
-              <i className="czi-arrow-right" />
+              <i className="czi-arrow-right"/>
             </a>
           </div>
           <div className="d-none d-sm-flex pb-3">
@@ -44,21 +63,21 @@ const Content = () => {
               className="btn btn-icon nav-link-style bg-light text-dark disabled opacity-100 mr-2"
               href="#"
             >
-              <i className="czi-view-grid" />
+              <i className="czi-view-grid"/>
             </a>
             <a
               className="btn btn-icon nav-link-style nav-link-light"
               href="shop-list-ls.html"
             >
-              <i className="czi-view-list" />
+              <i className="czi-view-list"/>
             </a>
           </div>
         </div>
         {/* Products grid*/}
-        <Products products={categories}/>
-        <hr className="my-3" />
+        <Products products={initialProducts}/>
+        <hr className="my-3"/>
         {/* Pagination*/}
-        <Pagination />
+        <Pagination/>
       </section>
     </React.Fragment>
   );
