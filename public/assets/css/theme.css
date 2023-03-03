@@ -4350,7 +4350,6 @@ input[type="button"].btn-block {
     border-radius: 1rem;
     box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.1);
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    appearance: none
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -16083,18 +16082,6 @@ a.badge-shadow:hover {
     box-shadow: 0 0.125rem 0.5625rem -0.125rem rgba(0, 0, 0, 0.25)
 }
 
-.cz-range-slider-ui .noUi-handle::before,
-.cz-range-slider-ui .noUi-handle::after {
-    display: none
-}
-
-.cz-range-slider-ui .noUi-handle:focus {
-    outline: none
-}
-
-.cz-range-slider-ui .noUi-marker-normal {
-    display: none
-}
 
 .cz-range-slider-ui .noUi-marker-horizontal.noUi-marker {
     width: 1px;
@@ -16788,7 +16775,6 @@ html:not([dir=rtl]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
 }
 
 .cz-sidebar-header {
-    display: none;
     position: relative;
     width: 100%;
     height: 3rem;

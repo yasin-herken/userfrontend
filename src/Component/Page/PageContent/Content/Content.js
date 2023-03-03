@@ -3,8 +3,13 @@ import Pagination from "./Pagination/Pagination";
 import Products from "./Products/Products";
 
 const Content = ({products}) => {
-  const [initialProducts, setProducts] = React.useState(products);
+  const [initialProducts, setProducts] = React.useState([]);
   const [value, setValue] = React.useState("Popularity");
+  useEffect(()=>{
+    if(products){
+      setProducts(products);
+    }
+  }, [products]);
   return (
     <React.Fragment>
       <section className="col-lg-8">

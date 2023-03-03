@@ -2,8 +2,7 @@ import React from 'react'
 import PageContent from './PageContent/PageContent'
 import PageTitle from './PageTitle/PageTitle'
 
-const Page = ({products = [],categories = []}) => {
-
+const Page = ({products,categories = []}) => {
   return (
     <React.Fragment>
         <PageTitle length = {products?.length} />

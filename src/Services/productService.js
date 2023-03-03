@@ -7,14 +7,13 @@ export const  getProductByIdandCategory = async({ category, id }) => {
   }
   return new Response("Product is empty", {status: 404});
 }
-export const getProducts = async ({pageSize = 12,sortBy = "createdAt",direction = "ASC",page=  0}) => {
-  const res = await publicRequest.get("/products",{
-    params: {
+export const getProducts = async ({pageSize = 12,sortBy = "createdAt",direction = "ASC",page=  0, criteria}) => {
+  const res = await publicRequest.post("/products",{
       pageSize,
       sortBy,
       direction,
-      page
-    }
+      page,
+      criteria
   });
   if(res.status === 200 && res.data) {
     return res.data.data;
