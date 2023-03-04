@@ -1,6 +1,25 @@
 import React from "react";
+import {usePagination} from "../../../../../Hooks/usePagination";
+import {Link} from "react-router-dom";
 
-const Pagination = () => {
+const Pagination = (props) => {
+  const {onPageChange, totalCount, siblingCount = 1, currentPage, pageSize} = props;
+
+  const paginationRange = usePagination({
+    currentPage,
+    totalCount,
+    siblingCount,
+    pageSize
+  });
+
+  const onNext = () => {
+    onPageChange(currentPage + 1);
+  };
+
+  const onPrevious = () => {
+    onPageChange(currentPage - 1);
+  };
+
   return (
     <React.Fragment>
       <nav
@@ -8,52 +27,46 @@ const Pagination = () => {
         aria-label="Page navigation"
       >
         <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" href="#">
-              <i className="czi-arrow-left mr-2" />
+          <li className={`page-item`} onClick={onPrevious}>
+            <Link className="page-link" to="">
+              <i className="czi-arrow-left mr-2"/>
               Prev
-            </a>
+            </Link>
           </li>
         </ul>
         <ul className="pagination">
-          <li className="page-item d-sm-none">
-            <span className="page-link page-link-static">1 / 5</span>
-          </li>
-          <li
-            className="page-item active d-none d-sm-block"
-            aria-current="page"
-          >
-            <span className="page-link">
-              1<span className="sr-only">(current)</span>
-            </span>
-          </li>
-          <li className="page-item d-none d-sm-block">
-            <a className="page-link" href="#">
-              2
-            </a>
-          </li>
-          <li className="page-item d-none d-sm-block">
-            <a className="page-link" href="#">
-              3
-            </a>
-          </li>
-          <li className="page-item d-none d-sm-block">
-            <a className="page-link" href="#">
-              4
-            </a>
-          </li>
-          <li className="page-item d-none d-sm-block">
-            <a className="page-link" href="#">
-              5
-            </a>
-          </li>
+          {
+            paginationRange.map((pageNumber, index) => {
+              if (pageNumber === '...') {
+                return (
+                  <li
+                    className="page-item disabled"
+                    key={index}
+                  >
+                    <span className="page-link">...</span>
+                  </li>
+                );
+              }
+              return (
+                <li
+                  className={`page-item ${currentPage === pageNumber ? 'active' : ''}`}
+                  key={`page${index}`}
+                  onClick={() => onPageChange(pageNumber)}
+                >
+                  <Link className="page-link" to="">
+                    {pageNumber}
+                  </Link>
+                </li>
+              );
+            })
+          }
         </ul>
         <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" href="#" aria-label="Next">
+          <li className="page-item" onClick={onNext}>
+            <Link className="page-link" to="#" aria-label="Next">
               Next
-              <i className="czi-arrow-right ml-2" />
-            </a>
+              <i className="czi-arrow-right ml-2"/>
+            </Link>
           </li>
         </ul>
       </nav>

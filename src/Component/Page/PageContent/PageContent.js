@@ -11,7 +11,7 @@ const PageContent = ({products, categories}) => {
           {/* Sidebar*/}
           <Sidebar categories={categories}/>
           {/* Content  */}
-          <Content products={products}/>
+          <Content key={products} products={products}/>
         </div>
       </div>
     </React.Fragment>

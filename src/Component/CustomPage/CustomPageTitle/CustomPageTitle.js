@@ -1,5 +1,6 @@
 import React from "react";
 import { capitalizeFirstLetter } from "../../../Utility/Utility";
+import {Link} from "react-router-dom";
 
 const CustomPageTitle = ({ product }) => {
   return (
@@ -11,13 +12,13 @@ const CustomPageTitle = ({ product }) => {
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-star">
                 <li className="breadcrumb-item">
-                  <a className="text-nowrap" href="index.html">
+                  <Link className="text-nowrap" to="/">
                     <i className="czi-home" />
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="breadcrumb-item text-nowrap">
-                  <a href="#">Shop</a>
+                  <Link to="#">Shop</Link>
                 </li>
                 <li
                   className="breadcrumb-item text-nowrap active"

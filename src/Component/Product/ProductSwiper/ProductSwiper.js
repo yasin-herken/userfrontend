@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import {AiOutlineLeftCircle, AiOutlineRightCircle} from "react-icons/ai";
 import {getProducts} from "../../../Services/productService";
 import {calculatePrice} from "../../../Utility/Utility";
+import {Link} from "react-router-dom";
 
 const ProductSwiper = () => {
   const [products, setProducts] = useState([]);
@@ -60,7 +61,7 @@ const ProductSwiper = () => {
                 dollar: 0,
                 cent: 0,
               }
-              if(product?.price) {
+              if (product?.price) {
                 price = calculatePrice(product?.price?.price);
               }
               return <SwiperSlide>
@@ -76,16 +77,16 @@ const ProductSwiper = () => {
                     >
                       <i className="czi-heart"/>
                     </button>
-                    <a className="card-img-top d-block" href="#">
+                    <Link className="card-img-top d-block" to="#">
                       <img src={product?.images[0]?.url} alt="Product"/>
-                    </a>
+                    </Link>
                     <div className="card-body py-2">
-                      <a
+                      <Link
                         className="product-meta d-block font-size-xs pb-1"
-                        href="#"
+                        to="#"
                       >
                         {product?.category.name}
-                      </a>
+                      </Link>
                       <h3 className="product-title font-size-sm">
                         <a href="#">{product?.title}</a>
                       </h3>
@@ -96,13 +97,6 @@ const ProductSwiper = () => {
                           {product?.price && <small>{price.cent}</small>}
                         </span>
                         </div>
-                        <div className="star-rating">
-                          <i className="sr-star czi-star-filled active"/>
-                          <i className="sr-star czi-star-filled active"/>
-                          <i className="sr-star czi-star-filled active"/>
-                          <i className="sr-star czi-star-filled active"/>
-                          <i className="sr-star czi-star"/>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -110,218 +104,6 @@ const ProductSwiper = () => {
               </SwiperSlide>
             })
             }
-            {/*<SwiperSlide>
-               Product
-              <div>
-                <div className="card product-card card-static">
-                  <button
-                    className="btn-wishlist btn-sm"
-                    type="button"
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Add to wishlist"
-                  >
-                    <i className="czi-heart"/>
-                  </button>
-                  <a className="card-img-top d-block overflow-hidden" href="#">
-                    <img src="assets/img/shop/catalog/66.jpg" alt="Product"/>
-                  </a>
-                  <div className="card-body py-2">
-                    <a
-                      className="product-meta d-block font-size-xs pb-1"
-                      href="#"
-                    >
-                      Smartwatches
-                    </a>
-                    <h3 className="product-title font-size-sm">
-                      <a href="#">Health &amp; Fitness Smartwatch</a>
-                    </h3>
-                    <div className="d-flex justify-content-between">
-                      <div className="product-price">
-                        <span className="text-accent">
-                          $250.<small>00</small>
-                        </span>
-                      </div>
-                      <div className="star-rating">
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-               Product
-              <div>
-                <div className="card product-card card-static">
-                  <button
-                    className="btn-wishlist btn-sm"
-                    type="button"
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Add to wishlist"
-                  >
-                    <i className="czi-heart"/>
-                  </button>
-                  <a className="card-img-top d-block overflow-hidden" href="#">
-                    <img src="assets/img/shop/catalog/67.jpg" alt="Product"/>
-                  </a>
-                  <div className="card-body py-2">
-                    <a
-                      className="product-meta d-block font-size-xs pb-1"
-                      href="#"
-                    >
-                      Smartwatches
-                    </a>
-                    <h3 className="product-title font-size-sm">
-                      <a href="#">Heart Rate &amp; Activity Tracker</a>
-                    </h3>
-                    <div className="d-flex justify-content-between">
-                      <div className="product-price text-accent">
-                        $26.<small>99</small>
-                      </div>
-                      <div className="star-rating">
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star"/>
-                        <i className="sr-star czi-star"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-               Product
-              <div>
-                <div className="card product-card card-static">
-                  <button
-                    className="btn-wishlist btn-sm"
-                    type="button"
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Add to wishlist"
-                  >
-                    <i className="czi-heart"/>
-                  </button>
-                  <a className="card-img-top d-block overflow-hidden" href="#">
-                    <img src="assets/img/shop/catalog/64.jpg" alt="Product"/>
-                  </a>
-                  <div className="card-body py-2">
-                    <a
-                      className="product-meta d-block font-size-xs pb-1"
-                      href="#"
-                    >
-                      Smartwatches
-                    </a>
-                    <h3 className="product-title font-size-sm">
-                      <a href="#">Smart Watch Series 5, Aluminium</a>
-                    </h3>
-                    <div className="d-flex justify-content-between">
-                      <div className="product-price text-accent">
-                        $349.<small>99</small>
-                      </div>
-                      <div className="star-rating">
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-               Product
-              <div>
-                <div className="card product-card card-static">
-                  <button
-                    className="btn-wishlist btn-sm"
-                    type="button"
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Add to wishlist"
-                  >
-                    <i className="czi-heart"/>
-                  </button>
-                  <a className="card-img-top d-block overflow-hidden" href="#">
-                    <img src="assets/img/shop/catalog/68.jpg" alt="Product"/>
-                  </a>
-                  <div className="card-body py-2">
-                    <a
-                      className="product-meta d-block font-size-xs pb-1"
-                      href="#"
-                    >
-                      Smartwatches
-                    </a>
-                    <h3 className="product-title font-size-sm">
-                      <a href="#">Health &amp; Fitness Smartwatch</a>
-                    </h3>
-                    <div className="d-flex justify-content-between">
-                      <div className="product-price text-accent">
-                        $118.<small>00</small>
-                      </div>
-                      <div className="star-rating">
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-               Product
-              <div>
-                <div className="card product-card card-static">
-                  <button
-                    className="btn-wishlist btn-sm"
-                    type="button"
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Add to wishlist"
-                  >
-                    <i className="czi-heart"/>
-                  </button>
-                  <a className="card-img-top d-block overflow-hidden" href="#">
-                    <img src="assets/img/shop/catalog/69.jpg" alt="Product"/>
-                  </a>
-                  <div className="card-body py-2">
-                    <a
-                      className="product-meta d-block font-size-xs pb-1"
-                      href="#"
-                    >
-                      Smartwatches
-                    </a>
-                    <h3 className="product-title font-size-sm">
-                      <a href="#">Heart Rate &amp; Activity Tracker</a>
-                    </h3>
-                    <div className="d-flex justify-content-between">
-                      <div className="product-price text-accent">
-                        $25.<small>00</small>
-                      </div>
-                      <div className="star-rating">
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star-filled active"/>
-                        <i className="sr-star czi-star"/>
-                        <i className="sr-star czi-star"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>*/}
             <AiOutlineRightCircle className="next"/>
           </Swiper>
         </div>

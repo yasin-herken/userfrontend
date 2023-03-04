@@ -18,7 +18,7 @@ const Header = ({path}) => {
               >
                 <img
                   width={142}
-                  src="assets/img/logo-dark.png"
+                  src="/assets/img/logo-dark.png"
                   alt="Cartzilla"
                 />
               </a>
@@ -29,7 +29,7 @@ const Header = ({path}) => {
               >
                 <img
                   width={74}
-                  src="assets/img/logo-dark.png"
+                  src="/assets/img/logo-dark.png"
                   alt="Cartzilla"
                 />
               </a>
@@ -118,7 +118,7 @@ const Header = ({path}) => {
                             >
                               <img
                                 width={64}
-                                src="assets/img/shop/cart/widget/01.jpg"
+                                src="/assets/img/shop/cart/widget/01.jpg"
                                 alt="Product"
                               />
                             </a>
@@ -152,7 +152,7 @@ const Header = ({path}) => {
                             >
                               <img
                                 width={64}
-                                src="assets/img/shop/cart/widget/02.jpg"
+                                src="/assets/img/shop/cart/widget/02.jpg"
                                 alt="Product"
                               />
                             </a>
@@ -186,7 +186,7 @@ const Header = ({path}) => {
                             >
                               <img
                                 width={64}
-                                src="assets/img/shop/cart/widget/03.jpg"
+                                src="/assets/img/shop/cart/widget/03.jpg"
                                 alt="Product"
                               />
                             </a>
@@ -220,7 +220,7 @@ const Header = ({path}) => {
                             >
                               <img
                                 width={64}
-                                src="assets/img/shop/cart/widget/04.jpg"
+                                src="/assets/img/shop/cart/widget/04.jpg"
                                 alt="Product"
                               />
                             </a>
@@ -304,7 +304,7 @@ const Header = ({path}) => {
                               href="#"
                             >
                               <img
-                                src="assets/img/shop/departments/01.jpg"
+                                src="/assets/img/shop/departments/01.jpg"
                                 alt="Shoes"
                               />
                             </a>
@@ -335,7 +335,7 @@ const Header = ({path}) => {
                               href="#"
                             >
                               <img
-                                src="assets/img/shop/departments/02.jpg"
+                                src="/assets/img/shop/departments/02.jpg"
                                 alt="Shoes"
                               />
                             </a>
@@ -366,7 +366,7 @@ const Header = ({path}) => {
                               href="#"
                             >
                               <img
-                                src="assets/img/shop/departments/03.jpg"
+                                src="/assets/img/shop/departments/03.jpg"
                                 alt="Shoes"
                               />
                             </a>
@@ -399,7 +399,7 @@ const Header = ({path}) => {
                               href="#"
                             >
                               <img
-                                src="assets/img/shop/departments/04.jpg"
+                                src="/assets/img/shop/departments/04.jpg"
                                 alt="Shoes"
                               />
                             </a>
@@ -432,7 +432,7 @@ const Header = ({path}) => {
                               href="#"
                             >
                               <img
-                                src="assets/img/shop/departments/05.jpg"
+                                src="/assets/img/shop/departments/05.jpg"
                                 alt="Shoes"
                               />
                             </a>
@@ -463,7 +463,7 @@ const Header = ({path}) => {
                               href="#"
                             >
                               <img
-                                src="assets/img/shop/departments/06.jpg"
+                                src="/assets/img/shop/departments/06.jpg"
                                 alt="Shoes"
                               />
                             </a>
@@ -523,7 +523,7 @@ const Header = ({path}) => {
                             style={{ width: "250px" }}
                           >
                             <img
-                              src="assets/img/home/preview/th01.jpg"
+                              src="/assets/img/home/preview/th01.jpg"
                               alt="Fashion Store v.1"
                             />
                           </a>
@@ -548,7 +548,7 @@ const Header = ({path}) => {
                             style={{ width: "250px" }}
                           >
                             <img
-                              src="assets/img/home/preview/th02.jpg"
+                              src="/assets/img/home/preview/th02.jpg"
                               alt="Fashion Store v.2"
                             />
                           </a>
@@ -573,7 +573,7 @@ const Header = ({path}) => {
                             style={{ width: "250px" }}
                           >
                             <img
-                              src="assets/img/home/preview/th03.jpg"
+                              src="/assets/img/home/preview/th03.jpg"
                               alt="Electronics Store"
                             />
                           </a>
@@ -598,7 +598,7 @@ const Header = ({path}) => {
                             style={{ width: "250px" }}
                           >
                             <img
-                              src="assets/img/home/preview/th04.jpg"
+                              src="/assets/img/home/preview/th04.jpg"
                               alt="Marketplace"
                             />
                           </a>
@@ -816,7 +816,7 @@ const Header = ({path}) => {
                         <div className="mega-dropdown-column py-4 pr-3">
                           <a className="d-block" href="#">
                             <img
-                              src="assets/img/shop/menu-banner.jpg"
+                              src="/assets/img/shop/menu-banner.jpg"
                               alt="Promo banner"
                             />
                           </a>

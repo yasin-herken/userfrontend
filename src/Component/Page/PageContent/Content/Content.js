@@ -1,18 +1,11 @@
 import React, {useEffect} from "react";
-import Pagination from "./Pagination/Pagination";
 import Products from "./Products/Products";
 
 const Content = ({products}) => {
-  const [initialProducts, setProducts] = React.useState([]);
+  const [initialProducts, setProducts] = React.useState(products);
   const [value, setValue] = React.useState("Popularity");
-  useEffect(()=>{
-    if(products){
-      setProducts(products);
-    }
-  }, [products]);
   return (
-    <React.Fragment>
-      <section className="col-lg-8">
+      <section className="col-lg-8" key={products.key}>
         {/* Toolbar*/}
         <div className="d-flex justify-content-center justify-content-sm-between align-items-center pt-2 pb-4 pb-sm-5">
           <div className="d-flex flex-wrap">
@@ -49,42 +42,12 @@ const Content = ({products}) => {
                 <option value={"A - Z Order"}>A - Z Order</option>
                 <option value={"Z - A Order"}>Z - A Order</option>
               </select>
-              <span className="font-size-sm text-light opacity-75 text-nowrap ml-2 d-none d-md-block">
-                of 287 products
-              </span>
             </div>
-          </div>
-          <div className="d-flex pb-3">
-            <a className="nav-link-style nav-link-light mr-3" href="#">
-              <i className="czi-arrow-left"/>
-            </a>
-            <span className="font-size-md text-light">1 / 5</span>
-            <a className="nav-link-style nav-link-light ml-3" href="#">
-              <i className="czi-arrow-right"/>
-            </a>
-          </div>
-          <div className="d-none d-sm-flex pb-3">
-            <a
-              className="btn btn-icon nav-link-style bg-light text-dark disabled opacity-100 mr-2"
-              href="#"
-            >
-              <i className="czi-view-grid"/>
-            </a>
-            <a
-              className="btn btn-icon nav-link-style nav-link-light"
-              href="shop-list-ls.html"
-            >
-              <i className="czi-view-list"/>
-            </a>
           </div>
         </div>
         {/* Products grid*/}
-        <Products products={initialProducts}/>
-        <hr className="my-3"/>
-        {/* Pagination*/}
-        <Pagination/>
+        <Products key={initialProducts} products={initialProducts}/>
       </section>
-    </React.Fragment>
   );
 };
 

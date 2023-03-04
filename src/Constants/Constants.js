@@ -23,3 +23,5 @@ export const sizeList = Object.freeze(
     {name: "XXLARGE", value: "xxl"},
   ]
 )
+
+export const pageSize = 12;

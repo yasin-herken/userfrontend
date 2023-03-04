@@ -13,7 +13,7 @@ const ShopGridLeft = () => {
         <Login />
         <QuickViewModal />
         <Header path="/shopGridLeft"/>
-        <Page products={products} categories={categories}/>
+        <Page products={products} categories={categories} />
         <AddedToCart />
         <Footer />
     </React.Fragment>

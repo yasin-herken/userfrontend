@@ -6,9 +6,7 @@ import {colorList, sizeList} from "../../../../Constants/Constants";
 const Sidebar = ({categories}) => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [checkedState, setCheckedState] = useState(
-    new Array(sizeList.length).fill(false)
-  );
+  const [checkedState, setCheckedState] = useState(new Array(sizeList.length).fill(false));
   const navigate = useNavigate();
   const location = useLocation();
   const queryParam = qs.parse(location.search);
@@ -64,8 +62,8 @@ const Sidebar = ({categories}) => {
             <h3 className="widget-title">Categories</h3>
             <div className="accordion mt-n1" id="shop-categories">
               {/* Shoes*/}
-              {categoryArray?.map(category => {
-                return <div className="card">
+              {categoryArray?.map((category, index) => {
+                return <div className="card" key={`category${index}`}>
                   <div className="card-header">
                     <h3 className="accordion-heading">
                       <a
@@ -109,10 +107,8 @@ const Sidebar = ({categories}) => {
                             <Link
                               className="widget-list-link d-flex justify-content-between align-items-center"
                               to={{
-                                pathname: "/shopGridLeft/query",
-                                search: qs.stringify({
-                                  ...queryParam,
-                                  category: category.name,
+                                pathname: "/shopGridLeft/query", search: qs.stringify({
+                                  ...queryParam, category: category.name,
                                 }),
                               }}
                             >
@@ -121,15 +117,13 @@ const Sidebar = ({categories}) => {
                               </span>
                             </Link>
                           </li>
-                          {category.recursiveChildren.map(child => {
-                            return <li className="widget-list-item cz-filter-item">
+                          {category.recursiveChildren.map((child,idx) => {
+                            return <li className="widget-list-item cz-filter-item" key={`recursiveChildren${idx}`}>
                               <Link
                                 className="widget-list-link d-flex justify-content-between align-items-center"
                                 to={{
-                                  pathname: "/shopGridLeft/query",
-                                  search: qs.stringify({
-                                    ...queryParam,
-                                    category: child.name,
+                                  pathname: "/shopGridLeft/query", search: qs.stringify({
+                                    ...queryParam, category: child.name,
                                   }),
                                 }}
                               >
@@ -189,7 +183,8 @@ const Sidebar = ({categories}) => {
               data-simplebar-auto-hide="false"
             >
               {sizeList?.map((size, index) => {
-                return <li className="cz-filter-item d-flex justify-content-between align-items-center mb-1">
+                return <li className="cz-filter-item d-flex justify-content-between align-items-center mb-1"
+                           key={size.value}>
                   <div
                     className="custom-control custom-checkbox"
                   >
@@ -199,9 +194,7 @@ const Sidebar = ({categories}) => {
                       type="checkbox"
                       value={checkedState[index]}
                       onChange={() => {
-                        setCheckedState(checkedState.map((item, indexChecked) =>
-                          indexChecked === index ? !item : item
-                        ));
+                        setCheckedState(checkedState.map((item, indexChecked) => indexChecked === index ? !item : item));
                         const newQueryParam = {...queryParam}
                         if (checkedState[index]) {
                           if (typeof queryParam.size === "string") {
@@ -211,15 +204,13 @@ const Sidebar = ({categories}) => {
                           }
                           console.log(newQueryParam)
                           navigate({
-                            pathname: "/shopGridLeft/query",
-                            search: qs.stringify(newQueryParam)
+                            pathname: "/shopGridLeft/query", search: qs.stringify(newQueryParam)
                           })
                         } else {
                           newQueryParam.size = queryParam["size"] ? [queryParam["size"], size.name] : [size.name]
                           console.log(newQueryParam)
                           navigate({
-                            pathname: "/shopGridLeft/query",
-                            search: qs.stringify(newQueryParam)
+                            pathname: "/shopGridLeft/query", search: qs.stringify(newQueryParam)
                           })
                         }
 
@@ -233,50 +224,46 @@ const Sidebar = ({categories}) => {
                     </label>
                   </div>
                 </li>
-              })
-              }
+              })}
             </ul>
           </div>
           {/* Filter by Color*/}
           <div className="widget">
             <h3 className="widget-title">Color</h3>
             <div className="d-flex flex-wrap">
-              {
-                colorList.map((color) => {
-                  return <div
-                    key={color.value}
-                    className="custom-control custom-option text-center mb-2 mx-1"
-                    style={{width: "4rem"}}
-                    onClick={() => {
-                      navigate({
-                        pathname: "/shopGridLeft/query",
-                        search: `?color=${color.value.toUpperCase()}`,
-                      })
-                    }
-                    }
-                  >
-                    <input
-                      className="custom-control-input"
-                      type="checkbox"
-                    />
+              {colorList.map((color) => {
+                return <div
+                  key={color.value}
+                  className="custom-control custom-option text-center mb-2 mx-1"
+                  style={{width: "4rem"}}
+                  onClick={() => {
+                    navigate({
+                      pathname: "/shopGridLeft/query", search: `?color=${color.value.toUpperCase()}`,
+                    })
+                  }}
+                >
+                  <input
+                    className="custom-control-input"
+                    type="checkbox"
+                  />
 
-                    <label
-                      className="custom-option-label rounded-circle"
-                      htmlFor="color-blue-gray"
-                    >
+                  <label
+                    className="custom-option-label rounded-circle"
+                    htmlFor="color-blue-gray"
+                  >
                     <span
                       className="custom-option-color rounded-circle"
                       style={{backgroundColor: color.value}}
                     />
-                    </label>
-                    <label
-                      className="d-block font-size-xs text-muted mt-n1"
-                      htmlFor="color-blue-gray"
-                    >
-                      {color.name}
-                    </label>
-                  </div>
-                })}
+                  </label>
+                  <label
+                    className="d-block font-size-xs text-muted mt-n1"
+                    htmlFor="color-blue-gray"
+                  >
+                    {color.name}
+                  </label>
+                </div>
+              })}
             </div>
           </div>
         </div>
