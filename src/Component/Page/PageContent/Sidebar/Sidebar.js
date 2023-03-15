@@ -3,13 +3,23 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import qs from "query-string";
 import {colorList, sizeList} from "../../../../Constants/Constants";
 
+let flag = false;
+
 const Sidebar = ({categories}) => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(1000);
-  const [checkedState, setCheckedState] = useState(new Array(sizeList.length).fill(false));
-  const navigate = useNavigate();
   const location = useLocation();
   const queryParam = qs.parse(location.search);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(1000);
+  const [checkedState, setCheckedState] = useState(sizeList.map((item, index) => {
+    if (typeof queryParam.size === "string") {
+      return queryParam.size === item.name;
+    } else if (Array.isArray(queryParam.size)) {
+      return queryParam.size.includes(item.name);
+    } else {
+      return false;
+    }
+  }));
+  const navigate = useNavigate();
   const categoryArray = categories?.filter((category) => {
     if (category.parentid === null) {
       return category;
@@ -107,7 +117,7 @@ const Sidebar = ({categories}) => {
                             <Link
                               className="widget-list-link d-flex justify-content-between align-items-center"
                               to={{
-                                pathname: "/shopGridLeft/query", search: qs.stringify({
+                                pathname: "/shop/query", search: qs.stringify({
                                   ...queryParam, category: category.name,
                                 }),
                               }}
@@ -117,12 +127,12 @@ const Sidebar = ({categories}) => {
                               </span>
                             </Link>
                           </li>
-                          {category.recursiveChildren.map((child,idx) => {
+                          {category.recursiveChildren.map((child, idx) => {
                             return <li className="widget-list-item cz-filter-item" key={`recursiveChildren${idx}`}>
                               <Link
                                 className="widget-list-link d-flex justify-content-between align-items-center"
                                 to={{
-                                  pathname: "/shopGridLeft/query", search: qs.stringify({
+                                  pathname: "/shop/query", search: qs.stringify({
                                     ...queryParam, category: child.name,
                                   }),
                                 }}
@@ -183,37 +193,42 @@ const Sidebar = ({categories}) => {
               data-simplebar-auto-hide="false"
             >
               {sizeList?.map((size, index) => {
-                return <li className="cz-filter-item d-flex justify-content-between align-items-center mb-1"
-                           key={size.value}>
+                return <li className="cz-filter-item d-flex justify-content-between align-items-center mb-1">
                   <div
                     className="custom-control custom-checkbox"
                   >
                     <input
-                      className="custom-control-input"
                       style={{cursor: "pointer", zIndex: 1}}
+                      className="custom-control-input"
                       type="checkbox"
-                      value={checkedState[index]}
+                      checked={checkedState[index]}
                       onChange={() => {
-                        setCheckedState(checkedState.map((item, indexChecked) => indexChecked === index ? !item : item));
                         const newQueryParam = {...queryParam}
                         if (checkedState[index]) {
                           if (typeof queryParam.size === "string") {
                             newQueryParam.size = []
                           } else if (Array.isArray(queryParam.size)) {
                             newQueryParam.size = queryParam.size.filter(item => item !== size.name)
+                          } else {
+                            newQueryParam.size = []
                           }
-                          console.log(newQueryParam)
                           navigate({
-                            pathname: "/shopGridLeft/query", search: qs.stringify(newQueryParam)
+                            pathname: "/shop/query", search: qs.stringify(newQueryParam)
                           })
                         } else {
-                          newQueryParam.size = queryParam["size"] ? [queryParam["size"], size.name] : [size.name]
-                          console.log(newQueryParam)
+                          if (typeof queryParam.size === "string") {
+                            newQueryParam.size = [queryParam.size, size.name]
+                          } else if (Array.isArray(queryParam.size)) {
+                            newQueryParam.size = queryParam.size
+                            newQueryParam.size.push(size.name)
+                          } else {
+                            newQueryParam.size = [size.name]
+                          }
                           navigate({
-                            pathname: "/shopGridLeft/query", search: qs.stringify(newQueryParam)
+                            pathname: "/shop/query", search: qs.stringify(newQueryParam)
                           })
                         }
-
+                        setCheckedState(checkedState.map((item, indexChecked) => indexChecked === index ? !item : item));
                       }}
                     />
                     <label
@@ -238,7 +253,7 @@ const Sidebar = ({categories}) => {
                   style={{width: "4rem"}}
                   onClick={() => {
                     navigate({
-                      pathname: "/shopGridLeft/query", search: `?color=${color.value.toUpperCase()}`,
+                      pathname: "/shop/query", search: `?color=${color.value.toUpperCase()}`,
                     })
                   }}
                 >

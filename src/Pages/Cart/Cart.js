@@ -7,11 +7,7 @@ import Footer from '../../Component/Footer/Footer'
 const Cart = () => {
   return (
     <React.Fragment>
-        <Login />
-        <QuickViewModal />
-        <Header path="/cart" />
         <CartComponent />
-        <Footer />
     </React.Fragment>
   )
 }

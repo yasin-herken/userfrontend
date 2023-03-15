@@ -9,9 +9,9 @@ const PageContent = ({products, categories}) => {
       <div className="container pb-5 mb-2 mb-md-4">
         <div className="row">
           {/* Sidebar*/}
-          <Sidebar categories={categories}/>
+          <Sidebar key={categories} categories={categories}/>
           {/* Content  */}
-          <Content key={products} products={products}/>
+          <Content products={products}/>
         </div>
       </div>
     </React.Fragment>

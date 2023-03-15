@@ -1,9 +1,13 @@
 import React from "react";
 import {calculatePrice} from "../../../Utility/Utility";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {addToCartByQuantity} from "../../../Features/Cart/cartSlice";
 
 const CustomContainer = ({product}) => {
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [quantity, setQuantity] = React.useState(1);
+  const dispatch = useDispatch();
   let price = {
     dollar: 0, cent: 0
   };
@@ -49,7 +53,7 @@ const CustomContainer = ({product}) => {
                           <img
                             className="cz-image-zoom"
                             src={image?.url}
-                            alt="Product image"
+                            alt="Product"
                           />
                           <div className="cz-image-zoom-pane"/>
                         </div>)
@@ -84,10 +88,23 @@ const CustomContainer = ({product}) => {
                         </span>
                       <span className="text-muted">{product?.color}</span>
                     </div>
+                    <div className={"font-size-sm mb-4"}>
+                      <span className="text-heading font-weight-medium mr-1">
+                          Stock:
+                      </span>
+                      <span className="text-muted">{product?.stock}</span>
+                    </div>
                     <div className="d-flex align-items-center pt-2 pb-4">
                       <select
                         className="custom-select mr-3"
                         style={{width: "5rem"}}
+                        value={quantity}
+                        onChange={(e) => {
+                          if (e.target.value < 1) {
+                            e.target.value = 1;
+                          }
+                          setQuantity(e.target.value);
+                        }}
                       >
                         <option value={1}>1</option>
                         <option value={2}>2</option>
@@ -98,6 +115,18 @@ const CustomContainer = ({product}) => {
                       <button
                         className="btn btn-primary btn-shadow btn-block"
                         type="button"
+                        onClick={() => {
+                          dispatch(addToCartByQuantity({
+                            id: product.id,
+                            title: product.title,
+                            size: product.size,
+                            color: product.color,
+                            image: product.images[0].url,
+                            price: product.price.price,
+                            currency: product.price.currency,
+                            quantity: +quantity
+                          }));
+                        }}
                       >
                         <i className="czi-cart font-size-lg mr-2"/>
                         Add to Cart

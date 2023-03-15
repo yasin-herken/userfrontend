@@ -6,7 +6,7 @@ const Page = ({products,categories = []}) => {
   return (
     <React.Fragment>
         <PageTitle length = {products?.length} />
-        <PageContent products={products} categories={categories}/>
+        <PageContent key={products} products={products} categories={categories}/>
     </React.Fragment>
   )
 }
