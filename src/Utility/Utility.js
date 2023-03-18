@@ -23,6 +23,5 @@ export const getTotal = (cart) => {
     totalQuantity += +item.quantity
     totalPrice += item.price * item.quantity
   })
-  console.log(totalPrice, totalQuantity)
   return {totalPrice, totalQuantity}
 }

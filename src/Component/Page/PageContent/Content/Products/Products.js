@@ -2,6 +2,7 @@ import React from "react";
 import Product from "./Product/Product";
 import Pagination from "../Pagination/Pagination";
 import {pageSize} from "../../../../../Constants/Constants";
+import {ToastContainer} from "react-toastify";
 
 const currentTable = (currentPage, pageSize, products) => {
   const startIndex = (currentPage - 1) * pageSize;

@@ -5,6 +5,5 @@ export const postComplete = async (data) => {
   if (res.status === 200 && res.data) {
     return res.data;
   }
-  console.log(res)
   return new Response("Complete is empty", {status: 404});
 }

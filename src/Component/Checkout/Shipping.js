@@ -15,11 +15,6 @@ const Shipping = ({setStep}) => {
   const {register, handleSubmit, watch, formState: {errors}} = useForm({
     resolver: yupResolver(schema),
   });
-
-  React.useEffect(() => {
-    const subscription = watch((value, {name, type}) => console.log(value, name, type));
-    return () => subscription.unsubscribe();
-  }, [watch]);
   const submitHandler = (e) => {
     actions.updateAction({
       ...state,

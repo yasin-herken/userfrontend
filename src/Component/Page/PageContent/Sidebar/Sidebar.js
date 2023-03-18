@@ -10,7 +10,7 @@ const Sidebar = ({categories}) => {
   const queryParam = qs.parse(location.search);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [checkedState, setCheckedState] = useState(sizeList.map((item, index) => {
+  const [checkedState, setCheckedState] = useState(sizeList.map((item) => {
     if (typeof queryParam.size === "string") {
       return queryParam.size === item.name;
     } else if (Array.isArray(queryParam.size)) {
@@ -110,8 +110,6 @@ const Sidebar = ({categories}) => {
                         </div>
                         <ul
                           className="widget-list cz-filter-list pt-1"
-                          data-simplebar
-                          data-simplebar-auto-hide="false"
                         >
                           <li className="widget-list-item cz-filter-item">
                             <Link
@@ -189,7 +187,6 @@ const Sidebar = ({categories}) => {
             <ul
               className="widget-list cz-filter-list list-unstyled pt-1"
               style={{maxHeight: "12rem"}}
-              data-simplebar
               data-simplebar-auto-hide="false"
             >
               {sizeList?.map((size, index) => {

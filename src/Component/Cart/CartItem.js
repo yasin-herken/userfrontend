@@ -46,7 +46,6 @@ const CartItem = ({id, title, price, currency, image, size, color, quantity}) =>
             if (e.target.value < 1) {
               e.target.value = 1;
             }
-            ;
             dispatch(autoIncrementOrDecrement({id, quantity: e.target.value}))
           }}
           value={quantity}

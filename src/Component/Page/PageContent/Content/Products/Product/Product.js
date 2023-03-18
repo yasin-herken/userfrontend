@@ -4,9 +4,12 @@ import {Link} from "react-router-dom";
 import {sizeList} from "../../../../../../Constants/Constants";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../../../../../Features/Cart/cartSlice";
+import {addToWishlist} from "../../../../../../Features/Wishlist/wishlistReducer";
+import {toast, ToastContainer} from "react-toastify";
 
 const Product = ({product}) => {
   const dispatch = useDispatch();
+  const [show, setShow] = React.useState(false);
   return (<React.Fragment>
     {/* Product*/}
     <div className="col-md-4 col-sm-6 px-2 mb-4" key={product.key}>
@@ -18,7 +21,7 @@ const Product = ({product}) => {
           data-placement="left"
           title="Add to wishlist"
           onClick={() => {
-            dispatch(addToCart({
+            dispatch(addToWishlist({
               id: product.id,
               title: product.title,
               size: product.size,
@@ -28,8 +31,7 @@ const Product = ({product}) => {
               currency: product.price.currency,
               stock: product.stock,
             }))
-          }
-          }
+          }}
         >
           <i className="czi-heart"/>
         </button>
@@ -40,9 +42,9 @@ const Product = ({product}) => {
           <img src={product?.images[0].url} alt="Product"/>
         </Link>
         <div className="card-body py-2">
-          <a className="product-meta d-block font-size-xs pb-1" href="#">
+          <Link className="product-meta d-block font-size-xs pb-1" to="#">
             {product?.category?.name}
-          </a>
+          </Link>
           <h3 className="product-title font-size-sm">
             <a href={`product/${product?.id}`}>{product?.title}</a>
           </h3>
