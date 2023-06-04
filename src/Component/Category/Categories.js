@@ -7,7 +7,8 @@ const Categories = () => {
   return (
     <React.Fragment>
       {categories.map((category, index) =>
-        index % 2 === 0 ? <LeftCategory key={category?.categoryName} category={category}/> : <RightCategory key={index} category={category}/>
+        index % 2 === 0 ? <LeftCategory key={category?.categoryName} category={category}/> :
+          <RightCategory key={index} category={category}/>
       )}
     </React.Fragment>
   );

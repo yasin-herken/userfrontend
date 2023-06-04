@@ -4,8 +4,7 @@ export const calculatePrice = (price) => {
   var decimalPlaces = x.toString().split(".")[1].length;
   decimals = decimals.toFixed(decimalPlaces);
   return {
-    dollar: Math.floor(x),
-    cent: decimals.split(".")[1],
+    dollar: Math.floor(x), cent: decimals.split(".")[1],
   };
 };
 

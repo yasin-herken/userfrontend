@@ -1,15 +1,13 @@
 import React from "react";
 import { calculatePrice } from "../../../Utility/Utility";
+import {Link} from "react-router-dom";
 
 const Product = ({ product, show }) => {
-  const {dollar, cent}= calculatePrice(product?.productPrice);
+  const {dollar, cent}= calculatePrice(product?.price?.price);
   if(!product) return null;
   let oldPrice ={
     dollar: "",
     cent: ""
-  }
-  if(product?.productOldPrice){
-    oldPrice = calculatePrice(product?.productOldPrice);
   }
 
   return (
@@ -28,18 +26,18 @@ const Product = ({ product, show }) => {
         >
           <i className="czi-heart" />
         </button>
-        <a
+        <Link
           className="card-img-top d-block overflow-hidden"
-          href={product?.productLink}
+          to={"/shop/"+product?.category?.name + "/" + product?.id}
         >
-          <img src={product?.productImage} alt="Product" />
-        </a>
+          <img src={product?.images[0].url} alt="Product" />
+        </Link>
         <div className="card-body py-2">
-          <a className="product-meta d-block font-size-xs pb-1" href="#">
-            {product?.productCategory}
-          </a>
+          <Link className="product-meta d-block font-size-xs pb-1" to="#">
+            {product?.category?.name}
+          </Link>
           <h3 className="product-title font-size-sm">
-            <a href={product?.productLink}>{product?.productTitle}</a>
+            <Link to={"/shop/product/" + product?.id}>{product?.title}</Link>
           </h3>
           <div className="d-flex justify-content-between">
             <div className="product-price">
@@ -51,17 +49,6 @@ const Product = ({ product, show }) => {
                 {oldPrice.dollar}.<small>{oldPrice.cent}</small>
               </del>
               )}
-            </div>
-            <div className="star-rating">
-              {Array(5)
-                .fill(0)
-                .map((_, index) =>
-                  index > product?.productRating ? (
-                    <i className="sr-star czi-star" key={index} />
-                  ) : (
-                    <i className="sr-star czi-star-filled active" key={index} />
-                  )
-                )}
             </div>
           </div>
         </div>

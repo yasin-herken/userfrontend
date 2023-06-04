@@ -18,7 +18,6 @@ const Login = () => {
   const buttonRef = useRef();
   const registerRef = useRef();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const onSubmitLogin = async (event) => {
     event.preventDefault();
     try {

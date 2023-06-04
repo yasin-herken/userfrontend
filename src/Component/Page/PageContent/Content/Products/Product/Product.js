@@ -9,7 +9,6 @@ import {toast, ToastContainer} from "react-toastify";
 
 const Product = ({product}) => {
   const dispatch = useDispatch();
-  const [show, setShow] = React.useState(false);
   return (<React.Fragment>
     {/* Product*/}
     <div className="col-md-4 col-sm-6 px-2 mb-4" key={product.key}>

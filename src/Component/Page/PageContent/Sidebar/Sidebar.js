@@ -3,8 +3,6 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import qs from "query-string";
 import {colorList, sizeList} from "../../../../Constants/Constants";
 
-let flag = false;
-
 const Sidebar = ({categories}) => {
   const location = useLocation();
   const queryParam = qs.parse(location.search);

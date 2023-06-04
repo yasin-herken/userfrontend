@@ -1,7 +1,7 @@
 import {publicRequest} from "../Requests/RequestMethods";
 
-export const  getProductByIdandCategory = async({ category, id }) => {
-  const res = await publicRequest.get(`/products/${category}/${id}`);
+export const  getProductById = async({ id }) => {
+  const res = await publicRequest.get(`/products/${id}`);
   if(res.status === 200 && res.data) {
     return res.data;
   }

@@ -1,16 +1,19 @@
-import React from "react";
-import {Link, useLocation} from "react-router-dom";
+import React, {useState} from "react";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {calculatePrice, getTotal} from "../../Utility/Utility";
 import {useDispatch, useSelector} from "react-redux";
 import {removeItem, selectCart} from "../../Features/Cart/cartSlice";
 import {selectWishlist} from "../../Features/Wishlist/wishlistReducer";
+import qs from "query-string";
 
 const Header = () => {
   const location = useLocation();
   const cart = useSelector(selectCart);
   const wishlist = useSelector(selectWishlist);
   const dispatch = useDispatch();
-
+  const [text, setText] = useState("");
+  const queryParam = qs.parse(location.search);
+  const navigate = useNavigate();
   return (<React.Fragment>
     {/* Navbar Electronics Store*/}
     <header className="box-shadow-sm">
@@ -24,9 +27,9 @@ const Header = () => {
               style={{minWidth: "7rem"}}
             >
               <img
-                width={142}
-                src="/assets/img/logo-dark.png"
-                alt="Cartzilla"
+                width={120}
+                src="/assets/img/shop1.png"
+                alt="Easy-Shop"
               />
             </Link>
             <Link
@@ -36,8 +39,8 @@ const Header = () => {
             >
               <img
                 width={74}
-                src="/assets/img/logo-dark.png"
-                alt="Cartzilla"
+                src="/assets/img/shop1.png"
+                alt="Easy-Shop"
               />
             </Link>
             <div className="input-group-overlay d-none d-lg-flex mx-4">
@@ -45,6 +48,18 @@ const Header = () => {
                 className="form-control appended-form-control"
                 type="text"
                 placeholder="Search for products"
+                onChange={(e)=> {
+                  setText(e.target.value);
+                }}
+                onKeyUp={(e)=>{
+                  if(e.key === "Enter") {
+                  const search = qs.stringify({...queryParam, search: text})
+                    navigate({
+                      pathname: "/shop/query",
+                      search
+                    })
+                  }
+                }}
               />
               <div className="input-group-append-overlay">
                   <span className="input-group-text">
