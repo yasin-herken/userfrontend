@@ -15,15 +15,16 @@ const Review = ({setStep}) => {
   const {customer, payment} = state;
   const submitHandler = async () => {
     try {
-      const res = await postComplete({
+      await postComplete({
         customer: customer, payment: payment, orders: cart.map((item) => {
           return {
             id: item.id, quantity: item.quantity,
           }
-        }), totalAmount: getTotal(cart).totalPrice,
+        }), totalAmount: getTotal(cart).totalPrice.toFixed(2),
       })
+        alert("Successfull Purchase");
     } catch (e) {
-      console.log(e)
+       alert("Error on purchase items");
     }
   }
   return (<React.Fragment>
@@ -69,7 +70,7 @@ const Review = ({setStep}) => {
           <h4 className="h6">Payment method:</h4>
           <ul className="list-unstyled font-size-sm">
             <li><span className="text-muted">Credit Card:&nbsp;</span>**** ****
-              **** {payment.creditCardNumber?.substring(12, 16)}</li>
+              **** {payment.creditCardNumber?.substring(payment.creditCardNumber.length-4)}</li>
           </ul>
         </div>
       </div>

@@ -102,7 +102,7 @@ const Header = () => {
                   <i className="navbar-tool-icon czi-cart"/>
                 </Link>
                 <Link className="navbar-tool-text" to="/cart">
-                  <small>My Cart</small>${getTotal(cart)?.totalPrice}
+                  <small>My Cart</small>${getTotal(cart)?.totalPrice.toFixed(2)}
                 </Link>
                 {/* Cart dropdown*/}
                 <div

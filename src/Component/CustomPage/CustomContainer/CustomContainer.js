@@ -124,6 +124,7 @@ const CustomContainer = ({product}) => {
                             image: product.images[0].url,
                             price: product.price.price,
                             currency: product.price.currency,
+                            stock: product.stock,
                             quantity: +quantity
                           }));
                         }}

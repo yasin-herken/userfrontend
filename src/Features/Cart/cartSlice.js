@@ -30,6 +30,7 @@ export const cartSlice = createSlice({
         else
           alert("Out of stock");
       } else {
+        console.log(action)
         if (action.payload.stock >= +action.payload.quantity)
           state.cart.push({...action.payload, quantity: +action.payload.quantity});
         else
